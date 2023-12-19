@@ -6,9 +6,9 @@ import { DataverseContextProvider } from "@dataverse/hooks";
 import App from "./App";
 
 import "./index.css";
+{/* <DataverseContextProvider> */}
+// </DataverseContextProvider>,
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <DataverseContextProvider>
-    <App />
-  </DataverseContextProvider>,
+  <App />
 );
