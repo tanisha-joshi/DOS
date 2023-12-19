@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="footer absolute  mt-12 left-0  p-10 m-0 min-w-full bg-base-300 text-base-content">
+    <footer className="footer  mt-12    p-10 m-0 bg-[#061f30] text-base-content">
   <nav>
-    <header className="footer-title">Services</header> 
+    <header className="footer-title ">Services</header> 
     <a className="link link-hover">Branding</a>
     <a className="link link-hover">Design</a>
     <a className="link link-hover">Marketing</a>
