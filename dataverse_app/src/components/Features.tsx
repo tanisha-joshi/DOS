@@ -11,7 +11,7 @@ export default function Features() {
       <div className="text-4xl mb-12">Our Features</div>
 
       <div className="grid gap-y-12  gap-x-12  self-center  border-red-500   grid-cols-2  pt-10">
-        <div className="card card-side bg-[#388cbd] h-40 shadow-xl">
+        <div className="card card-side bg-[#193849] h-40 shadow-xl">
           <figure>
             <FaLock className="h-32 ml-4 " />
           </figure>
@@ -49,7 +49,7 @@ export default function Features() {
             </p>
           </div>
         </div>
-        <div className="card card-side bg-base-100 h-40 shadow-xl">
+        <div className="card card-side bg-[#193849] h-40 shadow-xl">
           <figure>
             <HiUserGroup className="h-36 ml-4 " />
           </figure>

@@ -26,6 +26,8 @@ import Footer from "./components/Footer";
 import Landing from "./components/Landing";
 import Steps from "./components/Steps";
 import Features from "./components/Features";
+import Carousel from "./components/Carousel";
+import CreateCommunity from "./components/CreateCommunity";
 
 
 const modelParser = new ModelParser(app as Output);
@@ -52,7 +54,10 @@ const handle = ()=>{
       <Landing />
       <Features />
       <Steps />
-      <Footer />
+      <Carousel />
+      <Footer /> */
+
+      <CreateCommunity />
       
       
        </div>
