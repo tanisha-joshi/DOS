@@ -26,6 +26,8 @@ import Footer from "./components/Footer";
 import Landing from "./components/Landing";
 import Steps from "./components/Steps";
 import Features from "./components/Features";
+import Carousel from "./components/Carousel";
+import CreateCommunity from "./components/CreateCommunity";
 
 
 export default function App(){
@@ -34,11 +36,14 @@ export default function App(){
   return (
     <div className=" text-white m-0 p-0 bg-[#070e1c] min-h-screen box-border flex flex-col">
       
-      <Navbar />
+      {/* <Navbar />
       <Landing />
       <Features />
       <Steps />
-      <Footer />
+      <Carousel />
+      <Footer /> */}
+
+      <CreateCommunity />
       
       
        </div>
