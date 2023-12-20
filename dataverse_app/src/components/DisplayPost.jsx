@@ -38,8 +38,8 @@ const DisplayPost = ({post}) => {
                 </Typography>
                 <FlexBetween>
               <FlexBetween>
-                <IconButton className='bg-white' sx={{backgroundColor:"whitesmoke"}}>
-                {(false)?<Favorite/>:<FavoriteBorder />}
+                <IconButton  sx={{backgroundColor:"whitesmoke",height:"50%",width:"50%"}} >
+                {(false)?<Favorite  />:<FavoriteBorder />}
                 </IconButton >
                 {post.likes}
               </FlexBetween>

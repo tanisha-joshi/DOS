@@ -1,40 +1,44 @@
 import "./App.css";
 import React, { useState, useCallback } from "react";
 
-import {
-  ChainId,
-  Currency,
-  DatatokenType,
-} from "@dataverse/dataverse-connector";
+
 import {
   useApp,
-  useCollectFile,
-  useCreateIndexFile,
-  // useLoadDatatoken,
-  useFeedsByAddress,
-  useMonetizeFile,
-  useStore,
-  useUnlockFile,
-  useUpdateIndexFile,
+  
 } from "@dataverse/hooks";
 import { ModelParser, Output } from "@dataverse/model-parser";
-import ReactJson from "react-json-view";
-
 import app from "../output/app.json";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import CommunityPostPage from './pages/CommunityPostPage.jsx'
 
+import CommunityPostPage from './pages/CommunityPostPage.jsx'
+import HomePage from '../src/pages/HomePage.jsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CreateCommunityPage from './pages/CreateCommunityPage'
+
+
+const modelParser = new ModelParser(app as Output );
 export default function App(){
 
+  const { connectApp } = useApp({
+
+
+    appId: modelParser.appId,
+    autoConnect: false,
+    onSuccess: result => {
+      console.log("[connect]connect app success, result:", result);
+    },
+  });
+
+const handle = ()=>{
+  connectApp()
+}
   
   return (
-    <div className=" text-white m-0 p-0 box-border flex flex-col">
-      
-      {/* <Navbar />
-      <Footer /> */}
-      <CommunityPostPage/>
-      
-       </div>
+   <BrowserRouter>
+   <Routes>
+   <Route path="/" element={<HomePage handle={handle} />}/>
+   <Route path="postsPage" element={<CommunityPostPage handle={handle}  />}/>
+   <Route path="createCommunity" element={<CreateCommunityPage handle={handle} />}/>
+   </Routes>
+   </BrowserRouter>
   )
 }

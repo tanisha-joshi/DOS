@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Box, useMediaQuery } from "@mui/material";
 import DisplayPost from "../components/DisplayPost";
+import CommunityList from "../components/CommunityList";
 
 const postData = [
   {
@@ -34,24 +35,28 @@ const postData = [
     likes: "12",
   },
 ];
-const CommunityPostPage = () => {
+const CommunityPostPage = ({handle}) => {
   const isNonMobileScreen = useMediaQuery("(min-width:1000px)");
   return (
     <div className="flex flex-col h-screen justify-between">
-      <Navbar />
+      <Navbar  handleFunction= {handle} />
       <Box
         width="100%"
         padding="2rem 6%"
         display={isNonMobileScreen ? "flex" : "block"}
         gap="0.5 rem"
-        justifyContent={"center"}
-        alignItems={"center"}
+        justifyContent={"space-between"}
+        
       >
-        {/* <Box flexBasis={isNonMobileScreen ? "26%" : "undefined"}>
-          
-        </Box> */}
+         <Box 
+          style={{
+            marginTop: "5rem",
+          }}
+         flexBasis={isNonMobileScreen ? "26%" : "undefined"}>
+          <CommunityList post={postData}/>
+        </Box> 
         <Box
-          flexBasis={isNonMobileScreen ? "62%" : "undefined"}
+          flexBasis={isNonMobileScreen ? "42%" : "undefined"}
           style={{
             marginTop: "5rem",
             
@@ -62,6 +67,10 @@ const CommunityPostPage = () => {
             return <DisplayPost post={post} />;
           })}
         </Box>
+
+        <Box flexBasis={isNonMobileScreen?"26%":"undefined"}>
+                
+            </Box>
       </Box>
 
       <div className="">
