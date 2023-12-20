@@ -49,7 +49,6 @@ const handle = ()=>{
     <div className=" text-white m-0 p-0 bg-[#070e1c] min-h-screen box-border flex flex-col">
       
       <Navbar handleFunction= {handle} />
-      {/* <button onClick={handle}>connect</button> */}
       <Landing />
       <Features />
       <Steps />
