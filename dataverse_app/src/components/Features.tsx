@@ -4,6 +4,7 @@ import { GiFallingStar } from "react-icons/gi";
 import { HiUserGroup } from "react-icons/hi2";
 
 
+
 export default function Features() {
   return (
     <div className="mt-12 mb-16 px-12">
