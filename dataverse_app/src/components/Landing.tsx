@@ -6,7 +6,8 @@ export default function Landing(){
 
     return (
 
-        <div className="min-h-screen  flex flex-col items-center justify-center mt-8   gap-2">
+        <div className="min-h-screen  flex flex-col items-center justify-center mt-8 z-20    gap-2">
+           <img src="./bg.jpeg" className=" -z-10 absolute  brightness-[0.35] contrast-[1.1] hue-rotate-45 "  />
            <div className="text-5xl ">Private communities</div> 
             <div className="text-5xl">for content that <span className="text-sky-300 font-semibold">matters</span></div>
             <div className="flex mt-5 gap-6 ">
@@ -19,5 +20,5 @@ export default function Landing(){
             
 
         </div>
-    )
+    ) 
 }
