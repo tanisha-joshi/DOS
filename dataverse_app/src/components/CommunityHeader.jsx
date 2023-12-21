@@ -10,8 +10,9 @@ import {
     IconButton,
   } from "@mui/material";
 import { PersonAdd } from '@mui/icons-material';
-
+import { useNavigate } from 'react-router-dom';
 const CommunityHeader = ({post}) => {
+  const navigate=useNavigate()
   return (
     <FlexBetween pb={"1.1rem"}>
       <FlexBetween gap={"0.5rem"} padding={"1rem 0 0 1rem"}>
@@ -24,7 +25,7 @@ const CommunityHeader = ({post}) => {
               "&:hover": { cursor: "pointer", color: "gray" },
             }}
             onClick={() => {
-              
+              navigate('/SingleCommunity')
             }}
           >
             {post[0]}

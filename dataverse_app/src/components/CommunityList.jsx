@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Box,Typography} from "@mui/material"
 import CommunityHeader from "./CommunityHeader"
 import WidgetWrapper from "./WidgetWrapper"
-
+import {useNavigate} from 'react-router-dom'
 import { useContractRead ,useContractReads} from 'wagmi'
 import { abi, address } from '../constants'
 
@@ -10,15 +10,21 @@ import { abi, address } from '../constants'
 const comunityLists=[
     {
         communityName:"Shitx",
-        communityProfilePic:""
+        communityProfilePic:"",
+        address:"",
+        members:"25"
     },
     {
         communityName:"Shitx2",
-        communityProfilePic:""
+        communityProfilePic:"",
+        address:"",
+        members:"25"
     },
     {
         communityName:"Shitx3",
-        communityProfilePic:""
+        communityProfilePic:"",
+        address:"",
+        members:"25"
     }
 ]
 
@@ -56,6 +62,7 @@ const contracts = communities?.map((item,k) =>{
 ;
 
 console.log("data",data,error,isError,isLoading)
+const navigate = useNavigate()
   return (
     <>
      <WidgetWrapper mt={"1rem"} border="1px solid black">

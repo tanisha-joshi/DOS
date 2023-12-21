@@ -11,6 +11,7 @@ import { ModelParser, Output } from "@dataverse/model-parser";
 import app from "../output/app.json";
 
 import CommunityPostPage from './pages/CommunityPostPage.jsx'
+import SingleCommunityPage from './pages/SingleCommunityPage'
 import HomePage from '../src/pages/HomePage.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateCommunityPage from './pages/CreateCommunityPage'
@@ -53,6 +54,7 @@ const handle = ()=>{
    <Route path="/" element={<HomePage handle={handle} />}/>
    <Route path="/postsPage" element={<CommunityPostPage handle={handle}  />}/>
    <Route path="/createCommunity" element={<CreateCommunityPage handle={handle} />}/>
+   <Route path="/SingleCommunity" element={<SingleCommunityPage handle={handle} />}/>
    </Routes>
    </BrowserRouter>
   )
