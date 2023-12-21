@@ -53,7 +53,7 @@ const postData = [
   }
 const SingleCommunityPage = ({handle}) => {
 
-const index = 0
+const index = 1
 
 const {data} = useContractRead({
   address:address,
@@ -62,15 +62,15 @@ const {data} = useContractRead({
   args:[index]
 
 })
-const {data:post} = useContractRead({
+const {data:posts} = useContractRead({
   address:address,
   abi:abi,
   functionName:"getCommunityPost",
   args:[index]
 
 })
+const post = ["kjzl6kcym7w8yajvt35z03k5a3amt302jl2lpxgch07xpdk7mx6tfmf57kq96k8"]
 console.log("post",post)
-
 
 
 console.log("data",data)
