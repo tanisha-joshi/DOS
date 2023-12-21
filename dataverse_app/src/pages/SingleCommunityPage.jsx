@@ -8,6 +8,7 @@ import { useContractRead ,useContractReads} from 'wagmi'
 import { abi, address } from '../constants'
 import CommunityDeatils from '../components/CommunityDeatils';
 import WidgetWrapper from '../components/WidgetWrapper';
+import CreatePost from '../components/createPost';
 const postData = [
     {
       communityName: "ShixPost",
@@ -86,6 +87,9 @@ const SingleCommunityPage = ({handle}) => {
                 
             </Box>
       </Box>
+
+
+      <CreatePost/>
 
       <div className="">
         <Footer />

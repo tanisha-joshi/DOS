@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { useState, useCallback } from "react";
-import { DataverseConnector, WALLET } from '@dataverse/dataverse-connector';
+import React, { useState, useCallback, useEffect } from "react";
+// import { DataverseConnector, WALLET } from '@dataverse/dataverse-connector';
 
 // import { WalletProvider } from "@dataverse/wallet-provider";
 import {
@@ -32,8 +32,16 @@ export default function App(){
     },
   });
 
+
+  // useEffect(()=>{
+  // connectApp()
+
+
+  // },[])
+
 const handle = ()=>{
-  connectApp()
+  console.log("handle")
+  // connectApp()
   // walletProvider.connectWallet()
   // connectWallet().then(d => console.log(d))
 }

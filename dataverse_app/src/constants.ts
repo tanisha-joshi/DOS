@@ -1,5 +1,23 @@
-export const address = "0x1e9265D52b2Da3FeB31184a1Bf4aa4BDb7d47DA9"
+export const address = "0x578D1942700F5c6808Bb5B64bb8c5f6a637EC101"
 export const abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_Index",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_fileId",
+				"type": "string"
+			}
+		],
+		"name": "createCommunityPost",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
 	{
 		"inputs": [
 			{
@@ -19,6 +37,19 @@ export const abi = [
 			}
 		],
 		"name": "CreateNewCommunity",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_Index",
+				"type": "uint256"
+			}
+		],
+		"name": "joinCommunity",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -111,9 +142,15 @@ export const abi = [
 				"type": "uint256"
 			}
 		],
-		"name": "joinCommunity",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "getCommunityPost",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	}
 ]
