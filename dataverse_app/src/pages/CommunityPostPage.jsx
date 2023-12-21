@@ -4,7 +4,8 @@ import Footer from "../components/Footer";
 import { Box, useMediaQuery } from "@mui/material";
 import DisplayPost from "../components/DisplayPost";
 import CommunityList from "../components/CommunityList";
-
+import { useContractRead ,useContractReads} from 'wagmi'
+import { abi, address } from '../constants'
 const postData = [
   {
     communityName: "ShixPost",
@@ -36,6 +37,11 @@ const postData = [
   },
 ];
 const CommunityPostPage = ({handle}) => {
+  const { data:communities } = useContractRead({
+    address: address,
+    abi: abi,
+    functionName:"getCommunities" ,
+  })
   const isNonMobileScreen = useMediaQuery("(min-width:1000px)");
   return (
     <div className="flex flex-col h-screen justify-between">
@@ -53,7 +59,7 @@ const CommunityPostPage = ({handle}) => {
             marginTop: "5rem",
           }}
          flexBasis={isNonMobileScreen ? "26%" : "undefined"}>
-          <CommunityList post={postData}/>
+          <CommunityList communities={communities} post={postData}/>
         </Box> 
         <Box
           flexBasis={isNonMobileScreen ? "42%" : "undefined"}

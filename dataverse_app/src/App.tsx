@@ -1,7 +1,8 @@
 import "./App.css";
 import React, { useState, useCallback } from "react";
+import { DataverseConnector, WALLET } from '@dataverse/dataverse-connector';
 
-
+// import { WalletProvider } from "@dataverse/wallet-provider";
 import {
   useApp,
   
@@ -18,11 +19,13 @@ import CreateCommunityPage from './pages/CreateCommunityPage'
 const modelParser = new ModelParser(app as Output );
 export default function App(){
 
+
+
   const { connectApp } = useApp({
 
 
     appId: modelParser.appId,
-    autoConnect: false,
+    autoConnect: true,
     onSuccess: result => {
       console.log("[connect]connect app success, result:", result);
     },
@@ -30,14 +33,26 @@ export default function App(){
 
 const handle = ()=>{
   connectApp()
+  // walletProvider.connectWallet()
+  // connectWallet().then(d => console.log(d))
 }
+
+
+
+// const dataverseConnector = new DataverseConnector();
+// const walletProvider = new WalletProvider()
+// console.log("wpa",walletProvider.isConnected)
+
+
+
+
   
   return (
    <BrowserRouter>
    <Routes>
    <Route path="/" element={<HomePage handle={handle} />}/>
-   <Route path="postsPage" element={<CommunityPostPage handle={handle}  />}/>
-   <Route path="createCommunity" element={<CreateCommunityPage handle={handle} />}/>
+   <Route path="/postsPage" element={<CommunityPostPage handle={handle}  />}/>
+   <Route path="/createCommunity" element={<CreateCommunityPage handle={handle} />}/>
    </Routes>
    </BrowserRouter>
   )

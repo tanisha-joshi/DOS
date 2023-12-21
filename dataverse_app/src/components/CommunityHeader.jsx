@@ -15,7 +15,7 @@ const CommunityHeader = ({post}) => {
   return (
     <FlexBetween pb={"1.1rem"}>
       <FlexBetween gap={"0.5rem"} padding={"1rem 0 0 1rem"}>
-        <UserImage image={post.communityProfilePic||""} />
+        <UserImage image={post[2]||""} />
         <Box marginLeft="0.4rem">
           <Typography
             sx={{
@@ -27,7 +27,7 @@ const CommunityHeader = ({post}) => {
               
             }}
           >
-            {post.communityName}
+            {post[0]}
           </Typography>
           
         </Box>

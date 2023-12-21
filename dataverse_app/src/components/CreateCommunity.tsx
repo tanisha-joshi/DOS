@@ -1,10 +1,22 @@
 import React, { useState } from "react";
+import {address,abi} from "../constants"
+
+import { useContractWrite, usePrepareContractWrite } from 'wagmi'
+
 
 export default function CreateCommunity() {
   const [name,setName] = useState("")
   const [desc,setDesc] = useState("")
   const [img,setImg] = useState("")
   const [price,setPrice] = useState("")
+  const { config } = usePrepareContractWrite({
+    address: address,
+    abi: abi,
+    functionName: 'CreateNewCommunity',
+    args:[name,desc,img]
+  })
+  const { data, isLoading, isSuccess, write } = useContractWrite(config)
+
 
   console.log(img)
 
@@ -46,9 +58,12 @@ const handleCreate = ()=>{
           <div className="label">
             <span className="label-text">Upload a cover icon</span>
           </div>
-          <input type="file" className="file-input  file-input-bordered text-sm w-full max-w-xs" accept="image/png, image/jpeg"
+          <input
+            type="text"
+            placeholder="Type Image Url"
+            className="input input-bordered w-full max-w-xs"
             onChange={e=>setImg(e.target.value)}
-            />
+          />
         </label>
 
 
@@ -65,7 +80,7 @@ const handleCreate = ()=>{
           />
         </label>
 
-        <button onClick={handleCreate} className="btn  bg-[#53ade0] text-white">Create</button>
+        <button onClick={write} disabled={isLoading || !write} className="btn  bg-[#53ade0] text-white">Create</button>
 
 
       </div>
