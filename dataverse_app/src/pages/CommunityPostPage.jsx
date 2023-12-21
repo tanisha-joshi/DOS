@@ -69,7 +69,7 @@ const CommunityPostPage = ({handle}) => {
           }}
           className=""
         >
-          <CommunityList communities={communities} post={postData}/>
+          <CommunityList communities={communities} />
         </Box>
 
         <Box flexBasis={isNonMobileScreen?"21%":"undefined"}>

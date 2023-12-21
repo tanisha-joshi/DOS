@@ -9,6 +9,9 @@ import { abi, address } from '../constants'
 import CommunityDeatils from '../components/CommunityDeatils';
 import WidgetWrapper from '../components/WidgetWrapper';
 import CreatePost from '../components/createPost';
+import { useSearchParams } from 'react-router-dom';
+import { loadFile } from '../utils';
+// import { useContractRead } from 'wagmi';
 const postData = [
     {
       communityName: "ShixPost",
@@ -49,6 +52,29 @@ const postData = [
       members:"30"
   }
 const SingleCommunityPage = ({handle}) => {
+
+const index = 0
+
+const {data} = useContractRead({
+  address:address,
+  abi:abi,
+  functionName:"getCommunityDetails",
+  args:[index]
+
+})
+const {data:post} = useContractRead({
+  address:address,
+  abi:abi,
+  functionName:"getCommunityPost",
+  args:[index]
+
+})
+console.log("post",post)
+
+
+
+console.log("data",data)
+ 
   const isNonMobileScreen = useMediaQuery("(min-width:1000px)");
   return (
     <>
@@ -68,7 +94,9 @@ const SingleCommunityPage = ({handle}) => {
             marginRight:`${isNonMobileScreen?"2rem":"0"}`
           }}
          flexBasis={isNonMobileScreen ? "36%" : "undefined"}>
-         <CommunityDeatils community={community}/>
+         {data && <CommunityDeatils community={data}/>}
+      <CreatePost/>
+
         </Box> 
         <Box
           flexBasis={isNonMobileScreen ? "42%" : "undefined"}
@@ -78,8 +106,8 @@ const SingleCommunityPage = ({handle}) => {
           }}
           className=""
         >
-          {postData.map((post) => {
-            return <DisplayPost post={post} />;
+          {post?.map((postId) => {
+            return <DisplayPost post={postId} />;
           })}
         </Box>
 
@@ -89,7 +117,6 @@ const SingleCommunityPage = ({handle}) => {
       </Box>
 
 
-      <CreatePost/>
 
       <div className="">
         <Footer />

@@ -75,13 +75,14 @@ const navigate = useNavigate()
             </Typography>
             <Box display="flex" flexDirection="column" color={"whitesmoke"} gap="0rem">
              {
-              communityLists?.map((c)=>{
+              data?.map((c,k)=>{
+                console.log("c",c)
                 const post = c.result
                 
                     
                     return(
                       <>
-                      <CommunityHeader post={c} />
+                      <CommunityHeader post={post} index ={k} />
                       <Divider sx={{backgroundColor:"#575859",marginBottom:"1rem"}}/>
                       </>
                       

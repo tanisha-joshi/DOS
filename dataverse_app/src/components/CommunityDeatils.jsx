@@ -23,7 +23,7 @@ const CommunityDeatils = ({community}) => {
                 navigate(`/profile/${user._id}`);
               }}
             >
-              {community.communityName||"Shitx"}
+              {community[0]||"Shitx"}
             </Typography>
             <p style={{ marginTop: "0rem", fontSize: "0.8rem", color: "grey" }}>
               {community.members||"35"} Members
@@ -57,7 +57,7 @@ const CommunityDeatils = ({community}) => {
       >
        
         <Typography gap="0.5rem" display={"flex"} fontSize={"0.84rem"} variant="h6" color="whitesmoke">
-         <p style={{color:"grey"}}>Description </p>: {community.description||"For anything funny related to programming and software development"}
+         <p style={{color:"grey"}}>Description </p>: {community[1]||"For anything funny related to programming and software development"}
         </Typography>
       </Box>
       

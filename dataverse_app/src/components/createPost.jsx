@@ -24,15 +24,15 @@ function CreatePost() {
     try{
         dataverseConnector.connectWallet()
         // console.log("wallet",await  dataverseConnector.getCurrentWallet())
-        // await createCapability()
-        // const res = await createFile(msgText)
-        // console.log(res.fileContent.file.fileId)
+        await createCapability()
+        const res = await createFile(msgText)
+        console.log(res.fileContent.file.fileId)
 
-        // await writeAsync({
-        //     args:[0,res.fileContent.file.fileId]
-        // })
+        await writeAsync({
+            args:[0,res.fileContent.file.fileId]
+        })
 
-        const res = await monetize("kjzl6kcym7w8y68qvfhd20m0dhz0bqmdhzua9ex4tewf9l013eedthnbatu95yn")
+         await monetize("kjzl6kcym7w8y68qvfhd20m0dhz0bqmdhzua9ex4tewf9l013eedthnbatu95yn")
 
         console.log(res)
     // await shareFile()

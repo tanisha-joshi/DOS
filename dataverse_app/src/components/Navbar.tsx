@@ -6,7 +6,7 @@ export default function Navbar({ handleFunction }: any) {
 
   return (
     <nav className="fixed z-[9999999] w-full flex h-16 px-4 opacity-95 justify-between  items-center bg-[#061f30] left-0 top-0">
-      <div className="text-2xl h-min">Gat3r</div>
+      <div className="text-2xl h-min">ExclusiVerse</div>
       <div className="flex gap-12 h-min">
        <div className="h-min self-center"> <a href="/createCommunity">Create</a></div>
         <div className="h-min self-center"><a href="/postsPage">Explore</a></div>

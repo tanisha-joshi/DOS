@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import FlexBetween from './FlexBetween'
 import { UserImage } from './UserImage';
+import { useContractWrite } from 'wagmi';
 import {
     Box,
     Button,
@@ -10,9 +11,19 @@ import {
     IconButton,
   } from "@mui/material";
 import { PersonAdd } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
-const CommunityHeader = ({post}) => {
+import { useNavigate,createSearchParams } from 'react-router-dom';
+import { abi, address } from '../constants';
+const CommunityHeader = ({post,index}) => {
+
+  const {write} = useContractWrite({
+    address:address,
+    abi:abi,
+    functionName:"joinCommunity",
+    args:[index]
+  })
+  console.log("post",post  )
   const handleJoin = ()=>{
+    write()
 
   }
   const navigate=useNavigate()
@@ -41,13 +52,19 @@ const CommunityHeader = ({post}) => {
                 "&:hover": { cursor: "pointer", color: "grey" },
               }}
               onClick={() => {
-                navigate('/SingleCommunity')
+                navigate({
+                  pathname:"/singleCommunity",
+                  search:createSearchParams({
+                    id: index
+                }).toString()
+                
+                })
               }}
             >
                {post[0]||"ShixCommunity"}
             </Typography>
             <p style={{ marginTop: "0rem", fontSize: "0.8rem", color: "grey", }}>
-              {post.description||"For anything funny related to programming and software development"}
+              {post[1]}
             </p>
           </Box>
           
@@ -56,6 +73,7 @@ const CommunityHeader = ({post}) => {
       { (
         
               <Button
+              disabled={!write}
                onClick={handleJoin}
                mr="0.5rem"
           sx={{backgroundColor:"black",marginRight:"1rem",color:"#c6c9cb"}}
