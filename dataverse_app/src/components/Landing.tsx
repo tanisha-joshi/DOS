@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 export default function Landing(){
-
-
+   const navigate=useNavigate()
 
     return (
 
@@ -12,7 +11,9 @@ export default function Landing(){
             <div className="text-5xl">for content that <span className="text-sky-300 font-semibold">matters</span></div>
             <div className="flex mt-5 gap-6 ">
                 <button className="px-8 rounded-md py-3 bg-[#40a2db]"><Link to={"/createCommunity"} >Create</Link></button>   
-                <button className="px-8 rounded-md bg-gray-100 text-blue-900 py-3"> Explore </button>
+                <button className="px-8 rounded-md bg-gray-100 text-blue-900 py-3" 
+                 onClick={()=>navigate('/postsPage')}
+                > Explore </button>
             </div>
             
             

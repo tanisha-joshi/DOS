@@ -7,6 +7,7 @@ import {
     Typography,
     useMediaQuery,
     IconButton,
+    Divider,
   } from "@mui/material";
   import { PersonAdd, FavoriteBorder, Comment, Share,Favorite } from "@mui/icons-material";
 const DisplayPost = ({post}) => {
@@ -18,7 +19,8 @@ const DisplayPost = ({post}) => {
     <>
      <WidgetWrapper margin="1rem 0" color={"#eeeeee"} border="1px solid black">
             <CommunityHeader post={post} />
-            <Box display="flex" justifyContent="center">
+            <Divider sx={{ bgcolor: "secondary.light" }}/>
+            <Box m={"1rem"} display="flex" justifyContent="center">
               <Box padding="0 2rem">
                 <img
                   src={`${post.postPic}`}
@@ -29,6 +31,7 @@ const DisplayPost = ({post}) => {
                   }}
                   alt=""
                 />
+                
                 <Typography
                   fontSize="0.75rem"
                   width={isNonMobileScreen ? "90%" : "100%"}

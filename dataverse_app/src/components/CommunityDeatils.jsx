@@ -12,12 +12,12 @@ const CommunityDeatils = ({community}) => {
       <FlexBetween pb={"1.1rem"}>
         <FlexBetween gap={"0.5rem"} padding={"1rem 0 0 1rem"}>
           <UserImage  />
-          <Box marginLeft="0.4rem">
+          <Box marginLeft="0.4rem" color={"whitesmoke"}>
             <Typography
               sx={{
                 textTransform: "capitalize",
                 marginTop: "0.4rem",
-                "&:hover": { cursor: "pointer", color: "gray" },
+                "&:hover": { cursor: "pointer", color: "grey" },
               }}
               onClick={() => {
                 navigate(`/profile/${user._id}`);
@@ -32,20 +32,35 @@ const CommunityDeatils = ({community}) => {
         </FlexBetween>
         <Person2 sx={{ marginRight: "1rem" }}></Person2>
       </FlexBetween>
-      <Divider />
+      <Divider sx={{ bgcolor: "whitesmoke" }} />
 
       <Box
         display="flex"
         justifyContent="flex-start"
         gap="1.5rem"
-        p="1rem 0 0 1.5rem"
-        m={"1rem"}
+        p="1rem 0 0 0"
+        m={"1rem 1rem 2rem 1rem"}
       >
-        <FmdGood />
-        <Typography fontSize={"1rem"} variant="h6" color="gray">
-         Address : {community.address||"0X123"}
+       
+        <Typography fontSize={"0.84rem"} display={"flex"} variant="h6" color="whitesmoke">
+        <p style={{color:"grey"}}>Address </p>  : {community.address||"0X123"}
         </Typography>
       </Box>
+      <Divider sx={{ bgcolor: "whitesmoke" }} />
+      <Box
+      
+        textAlign="start"
+        gap="1.5rem"
+        p="1rem 0 0 0"
+       m={"1rem 1rem"}
+       mb={"3rem"}
+      >
+       
+        <Typography gap="0.5rem" display={"flex"} fontSize={"0.84rem"} variant="h6" color="whitesmoke">
+         <p style={{color:"grey"}}>Description </p>: {community.description||"For anything funny related to programming and software development"}
+        </Typography>
+      </Box>
+      
       </WidgetWrapper>
     </>
   )
