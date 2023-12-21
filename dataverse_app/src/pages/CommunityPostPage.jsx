@@ -58,23 +58,21 @@ const CommunityPostPage = ({handle}) => {
           style={{
             marginTop: "5rem",
           }}
-         flexBasis={isNonMobileScreen ? "26%" : "undefined"}>
-          <CommunityList communities={communities} post={postData}/>
+         flexBasis={isNonMobileScreen ? "21%" : "undefined"}>
+          {/* <CommunityList communities={communities} post={postData}/> */}
         </Box> 
         <Box
-          flexBasis={isNonMobileScreen ? "42%" : "undefined"}
+          flexBasis={isNonMobileScreen ? "52%" : "undefined"}
           style={{
             marginTop: "5rem",
             
           }}
           className=""
         >
-          {postData.map((post) => {
-            return <DisplayPost post={post} />;
-          })}
+          <CommunityList communities={communities} post={postData}/>
         </Box>
 
-        <Box flexBasis={isNonMobileScreen?"26%":"undefined"}>
+        <Box flexBasis={isNonMobileScreen?"21%":"undefined"}>
                 
             </Box>
       </Box>

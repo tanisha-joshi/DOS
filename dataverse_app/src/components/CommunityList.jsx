@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Box,Typography} from "@mui/material"
+import {Box,Divider,Typography} from "@mui/material"
 import CommunityHeader from "./CommunityHeader"
 import WidgetWrapper from "./WidgetWrapper"
 import {useNavigate} from 'react-router-dom'
@@ -7,7 +7,7 @@ import { useContractRead ,useContractReads} from 'wagmi'
 import { abi, address } from '../constants'
 
 
-const comunityLists=[
+const communityLists=[
     {
         communityName:"Shitx",
         communityProfilePic:"",
@@ -66,21 +66,25 @@ const navigate = useNavigate()
   return (
     <>
      <WidgetWrapper mt={"1rem"} border="1px solid black">
-            <Typography color={"whitesmoke"} 
+            <Typography color={"#fdfdfd"} 
               variant="h5"
               fontWeight="500"
               sx={{p:"1rem"}}
             >
-           Your Communities
+           Join Community
             </Typography>
             <Box display="flex" flexDirection="column" color={"whitesmoke"} gap="0rem">
              {
-              data?.map((c)=>{
+              communityLists?.map((c)=>{
                 const post = c.result
                 
                     
                     return(
-                      <CommunityHeader post={post} />
+                      <>
+                      <CommunityHeader post={c} />
+                      <Divider sx={{backgroundColor:"#575859",marginBottom:"1rem"}}/>
+                      </>
+                      
                     )
                 })
              }

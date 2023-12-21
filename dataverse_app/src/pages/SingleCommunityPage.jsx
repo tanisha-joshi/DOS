@@ -64,7 +64,7 @@ const SingleCommunityPage = ({handle}) => {
       >
          <Box 
           style={{
-            marginTop: "5rem",
+            marginTop: `${isNonMobileScreen?"3rem":"5rem"}`,
             marginRight:`${isNonMobileScreen?"2rem":"0"}`
           }}
          flexBasis={isNonMobileScreen ? "36%" : "undefined"}>
